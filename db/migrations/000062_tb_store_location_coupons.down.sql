@@ -1,0 +1,1 @@
+DROP TABLE IF EXITS "store_location_coupons";

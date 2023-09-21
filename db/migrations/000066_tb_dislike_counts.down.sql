@@ -1,0 +1,1 @@
+DROP TABLE IF EXITS "dis_like_counts";

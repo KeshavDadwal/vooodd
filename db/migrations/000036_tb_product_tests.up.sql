@@ -1,0 +1,26 @@
+CREATE TABLE "product_tests" (
+  "id" SERIAL PRIMARY KEY,
+  "brand_id" INT DEFAULT NULL,
+  "product_category_id" INT DEFAULT NULL,
+  "name" varchar NOT NULL,
+  "sku" varchar NOT NULL,
+  "description" varchar DEFAULT NULL,
+  "short_description" varchar DEFAULT NULL,
+  "weight" decimal(10,2) DEFAULT NULL,
+  "new_from" DATE DEFAULT NULL,
+  "new_end" DATE DEFAULT NULL,
+  "isdeleted" boolean DEFAULT 'false',
+  "isblocked" boolean DEFAULT 'false',
+  "isbestseller" boolean DEFAULT 'false',
+  "isfeatured" boolean DEFAULT 'false',
+  "meta_title" varchar NOT NULL,
+  "meta_keywords" varchar NOT NULL,
+  "meta_description" varchar NOT NULL,
+  "price" decimal(10,2) NOT NULL,
+  "unit_id" INT DEFAULT NULL,
+  "created_at" timestamptz NOT NULL DEFAULT (now()),
+  CONSTRAINT fk_product_tests_brand FOREIGN KEY (brand_id) REFERENCES brands(id) ON UPDATE CASCADE ON DELETE RESTRICT,
+  CONSTRAINT fk_product_tests_product_category FOREIGN KEY (product_category_id) REFERENCES product_categories(id) ON UPDATE CASCADE ON DELETE RESTRICT,
+  CONSTRAINT fk_product_tests_unit FOREIGN KEY (unit_id) REFERENCES units(id) ON UPDATE CASCADE ON DELETE RESTRICT
+);
+

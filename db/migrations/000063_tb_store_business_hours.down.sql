@@ -1,0 +1,1 @@
+DROP TABLE IF EXITS "store_business_hours";
